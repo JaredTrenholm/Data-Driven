@@ -1,0 +1,4 @@
+﻿name=Cido
+dialogue=hi
+x=25
+y=25

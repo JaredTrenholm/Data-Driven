@@ -24,9 +24,12 @@ C:\Users\jumpy\OneDrive\c\csharp\RPG_LEGACY_JaredT\TextedBased RPG\obj\Debug\Tex
 C:\Users\jumpy\OneDrive\c\csharp\RPG_LEGACY_JaredT\TextedBased RPG\obj\Debug\TextedBased RPG.pdb
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\obj\Debug\TextedBased RPG.exe
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\obj\Debug\TextedBased RPG.pdb
-C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\Overworld.txt
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\TextedBased RPG.exe.config
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\TextedBased RPG.exe
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\TextedBased RPG.pdb
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\obj\Debug\TextedBased RPG.csproj.AssemblyReference.cache
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\obj\Debug\TextedBased RPG.csproj.CoreCompileInputs.cache
+C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Overworld.txt
+C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Enemy.txt
+C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\NPC.txt
+C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Towns.txt

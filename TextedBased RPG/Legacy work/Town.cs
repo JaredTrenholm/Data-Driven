@@ -11,10 +11,12 @@ namespace TextedBased_RPG
         public string Name { get { return name; } set { name = value; } }
 
         //constructor
-        public Town(string name, string DesiredDialogue) : base(name, DesiredDialogue)
+        public Town(int xPos, int yPos, string name, string DesiredDialogue) : base(name, DesiredDialogue)
         {
-            x = 15;
-            y = 10;
+            x = xPos;
+            y = yPos;
+            Name = name;
+            dialogue = DesiredDialogue;
             avatar = "T";
         }
 

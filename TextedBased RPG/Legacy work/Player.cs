@@ -17,6 +17,7 @@ namespace TextedBased_RPG
         public string PlayerAttackMessage;
 
         private EnemyManager enemies;
+        private TownManager towns;
 
         public Enemy targetFoe;
 
@@ -26,9 +27,8 @@ namespace TextedBased_RPG
 
 
         private ChestManager chests;
-        private Town town;
         private List<Shop> shops = new List<Shop>();
-        private FriendlyNPC npc;
+        private NPCManager npcs;
 
         public bool hasBoat = false;
 
@@ -37,11 +37,11 @@ namespace TextedBased_RPG
 
 
 
-        public Player(EnemyManager enemyManagerTarget, ChestManager chestManager, Town townTarget, List<Shop> shopsTarget, FriendlyNPC npcTarget, Hud HUDTarget, ItemManager itemTarget)
+        public Player(EnemyManager enemyManagerTarget, ChestManager chestManager, TownManager townTarget, List<Shop> shopsTarget, NPCManager npcTarget, Hud HUDTarget, ItemManager itemTarget)
         {
-            npc = npcTarget;
+            npcs = npcTarget;
             chests = chestManager;
-            town = townTarget;
+            towns = townTarget;
             shops = shopsTarget;
             enemies = enemyManagerTarget;
             maxHealth = 100;
@@ -60,10 +60,7 @@ namespace TextedBased_RPG
 
         public void Draw()
         {
-            
-                Renderer.RenderData[CharacterY, CharacterX] = "@";
-            
-            
+            Renderer.RenderData[CharacterY, CharacterX] = "@";
         }
         public void Update()
         {
@@ -72,19 +69,15 @@ namespace TextedBased_RPG
             {
                 chestTarget.CheckChest();
             }
-            if (CharacterX == npc.x)
+            FriendlyNPC npc = npcs.LocateNPC(CharacterX, CharacterY);
+            if (npc != null)
             {
-                if (CharacterY == npc.y)
-                {
-                    npc.Talk();
-                }
+                npc.Talk();
             }
-            else if (CharacterX == town.x)
+            Town town = towns.LocateTown(CharacterX, CharacterY);
+            if (town != null)
             {
-                if (CharacterY == town.y)
-                {
-                    town.EnterTown();
-                }
+                town.EnterTown();
             }
             for (int i = 0; i < shops.Count; i++)
             { 

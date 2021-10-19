@@ -64,18 +64,28 @@
     <Compile Include="Legacy work\Shop.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Legacy work\Player.cs" />
+    <Compile Include="NPCManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderer.cs" />
     <Compile Include="Slime.cs" />
     <Compile Include="Legacy work\Town.cs" />
+    <Compile Include="TownManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Enemy.txt" />
-    <Content Include="Overworld.txt">
+    <Content Include="DataFiles\Enemy.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataFiles\NPC.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataFiles\Overworld.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataFiles\Towns.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

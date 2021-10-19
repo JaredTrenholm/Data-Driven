@@ -9,7 +9,8 @@ namespace TextedBased_RPG
     class DataReading
     {
         static List<Action> methodList = new List<Action>();
-        static string[] fileNames = { "Enemy"};
+        static string[] fileNames = { "Enemy", "NPC", "Towns"};
+
 
         // EXAMPLE OF USING TXT TO LOAD METHODS
         /*static void Main(string[] args)
@@ -54,24 +55,27 @@ namespace TextedBased_RPG
             }
         }*/
 
-        public void LoadData(EnemyManager enemyManager)
+        public void LoadData(EnemyManager enemyManager, NPCManager npcManager, TownManager townManager)
         {
             string[] fileLoaded;
             for(int i = 0; i < fileNames.Length; i++)
             {
-                fileLoaded = System.IO.File.ReadAllLines(fileNames[i] + ".txt");
+                fileLoaded = System.IO.File.ReadAllLines("DataFiles/" + fileNames[i] + ".txt");
 
                 switch (fileNames[i]) {
                     case "Enemy":
                         ParseEnemies(fileLoaded, enemyManager);
                         break;
                     case "NPC":
-                        ParseNPC(fileLoaded);
+                        ParseNPC(fileLoaded, npcManager);
+                        break;
+                    case "Towns":
+                        ParseTown(fileLoaded, townManager);
                         break;
                 }
             }
         }
-        private void ParseNPC(string[] fileLoaded)
+        private void ParseNPC(string[] fileLoaded, NPCManager npcManager)
         {
             string dialogue = "";
             int xPos = -1;
@@ -83,7 +87,7 @@ namespace TextedBased_RPG
                 {
                     if (lineSplit[x].ToLower() == "dialogue")
                     {
-                        dialogue = lineSplit[x + 1].ToLower();
+                        dialogue = lineSplit[x+1];
                         x += 1;
                     }
 
@@ -101,7 +105,55 @@ namespace TextedBased_RPG
 
                     if (xPos != -1 && yPos != -1 && dialogue != "")
                     {
+                        npcManager.CreateNPC(xPos, yPos, dialogue);
                         dialogue = "";
+                        xPos = -1;
+                        yPos = -1;
+                        break;
+                    }
+
+                }
+            }
+        }
+        private void ParseTown(string[] fileLoaded, TownManager townManager)
+        {
+            string name = "";
+            string dialogue = "";
+            int xPos = -1;
+            int yPos = -1;
+            for (int i = 0; i < fileLoaded.Length; i++)
+            {
+                string[] lineSplit = fileLoaded[i].Split('=');
+                for (int x = 0; x < lineSplit.Length; x++)
+                {
+                    if (lineSplit[x].ToLower() == "name")
+                    {
+                        name = lineSplit[x + 1];
+                        x += 1;
+                    }
+                    if (lineSplit[x].ToLower() == "dialogue")
+                    {
+                        dialogue = lineSplit[x + 1];
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "x")
+                    {
+                        xPos = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "y")
+                    {
+                        yPos = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (xPos != -1 && yPos != -1 && dialogue != "" && name != "")
+                    {
+                        townManager.CreateTown(xPos, yPos,name, dialogue);
+                        dialogue = "";
+                        name = "";
                         xPos = -1;
                         yPos = -1;
                         break;

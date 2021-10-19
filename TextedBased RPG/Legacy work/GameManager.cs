@@ -13,12 +13,12 @@ namespace TextedBased_RPG
 
 
         private Random random = new Random();
-        private FriendlyNPC npc = new FriendlyNPC();
         private Hud HUD;
-        private Town town;
+        private TownManager towns;
         private List<Shop> shops = new List<Shop>();
         private EnemyManager enemies;
         private ChestManager chests;
+        private NPCManager npcs;
 
         private GameLoopConditionals gameLoop;
 
@@ -77,13 +77,13 @@ namespace TextedBased_RPG
             {
                 Console.CursorVisible = false;
                 Console.SetCursorPosition(0, 0);
-                npc.Draw();
-                town.Draw();
+                towns.Draw();
                 shops[0].Draw();
                 shops[1].Draw();
                 shops[2].Draw();
                 chests.Draw();
                 enemies.Draw();
+                npcs.Draw();
                 player.Draw();
                 Renderer.Draw();
                 HUD.Display();
@@ -108,14 +108,15 @@ namespace TextedBased_RPG
             items = new ItemManager();
             enemies = new EnemyManager(random);
             chests = new ChestManager(items, random);
-            town = new Town("Cido", "There is a Bandit Lord on a small island in the east.\nThere is an old boat to the south you can use.");
+            towns = new TownManager();
+            npcs = new NPCManager();
 
-            dataReader.LoadData(enemies);
+            dataReader.LoadData(enemies, npcs);
             
-            npc.Dialogue = "To my north is water. You cannot cross without a boat.\nTo my east is a mountain. You cannot hike up the mountain.";
+           // npc.Dialogue = "To my north is water. You cannot cross without a boat.\nTo my east is a mountain. You cannot hike up the mountain.";
             HUD = new Hud();
-            player = new Player(enemies, chests, town, shops, npc, HUD, items);
-            town.SetPlayer(player);
+            player = new Player(enemies, chests, towns, shops, npcs, HUD, items);
+            towns.SetPlayer(player);
             
             HUD.findTargets(player, enemies.GetEnemies());
             chests.chestInitialize();

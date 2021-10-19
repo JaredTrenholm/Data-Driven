@@ -8,7 +8,7 @@ namespace TextedBased_RPG
 {
     class EnemyManager
     {
-        private static int enemyAmount = 100;
+        private static int enemyAmount = 999;
         private int enemyCount = 0;
         private Enemy[] enemy = new Enemy[enemyAmount];
         private int enemyLimit = enemyAmount;
@@ -48,8 +48,6 @@ namespace TextedBased_RPG
         }
         public void CreateEnemy(int x, int y, string type)
         {
-            Console.WriteLine(type + ", " + x + ", " + y +" COUNT: " + enemyCount);
-            Console.ReadKey(true);
             switch (type.ToLower()) {
                 case "dog":
                     enemy[enemyCount] = new Dog(random);

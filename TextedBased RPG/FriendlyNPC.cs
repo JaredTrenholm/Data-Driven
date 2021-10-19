@@ -8,16 +8,17 @@ namespace TextedBased_RPG
 {
     class FriendlyNPC
     {
-        public string Dialogue = "";
+        public string dialogue;
         public int x;
         public int y;
 
 
 
-        public FriendlyNPC()
+        public FriendlyNPC(int xPos, int yPos, string dialogue)
         {
-            x = 20;
-            y = 7;
+            x = xPos;
+            y = yPos;
+            this.dialogue = dialogue;
 
         }
 
@@ -30,7 +31,7 @@ namespace TextedBased_RPG
             Console.Clear();
             Console.WriteLine("You encountered a friendly traveler. Here is what they had to say.");
             Console.WriteLine();
-            Console.WriteLine(Dialogue);
+            Console.WriteLine(dialogue);
             Console.ReadKey(true);
             Console.Clear();
         }

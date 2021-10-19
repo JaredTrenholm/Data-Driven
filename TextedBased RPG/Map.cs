@@ -37,7 +37,7 @@ namespace TextedBased_RPG
             string[] mapLoaded;
             if (mapID == 0)
             {
-                mapLoaded = System.IO.File.ReadAllLines("Overworld.txt");
+                mapLoaded = System.IO.File.ReadAllLines("DataFiles/Overworld.txt");
                 mapData = new string[Global.MAP_Y_LENGTH, Global.MAP_X_LENGTH];
                 for (int x = 0; x < Global.MAP_Y_LENGTH; x++)
                 {

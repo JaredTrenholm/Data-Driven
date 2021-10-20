@@ -1,4 +1,4 @@
 ﻿name=Cido
-dialogue=hi
-x=25
-y=25
+dialogue=Out East, there is an island. It's small, but something has to be there right?
+x=17
+y=10

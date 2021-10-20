@@ -22,7 +22,7 @@ namespace TextedBased_RPG
 
         private GameLoopConditionals gameLoop;
 
-        private ItemManager items;
+        private ItemProperties items;
 
         List<ITEM> stockListForShop1 = new List<ITEM>();
         List<ITEM> stockListForShop2 = new List<ITEM>();
@@ -52,7 +52,7 @@ namespace TextedBased_RPG
             stockListForShop1.Add(ITEM.POTION);
             stockListForShop1.Add(ITEM.SWORD);
             stockListForShop1.Add(ITEM.BOW);
-            shops.Add(new Shop("The $hop", $"You sure look like you could use a boat!,\ntoo bad I sold my last one to a guy in {town.Name}! :D HA,HA,HA.", 16, 7, items, stockListForShop1, 3)); // I-0
+            shops.Add(new Shop("The $hop", $"You sure look like you could use a boat!,\ntoo bad I sold my last one to a guy in town! :D HA,HA,HA.", 16, 7, items, stockListForShop1, 3)); // I-0
             shops[0].itemsInShop = shops[0].itemsInShop;
             shops[0].SetPlayer(player);
 
@@ -101,25 +101,23 @@ namespace TextedBased_RPG
 
         private void InitObjects()
         {
-            Map.LoadMap(0);
+            Map.LoadMap();
 
             DataReading dataReader = new DataReading();
 
-            items = new ItemManager();
+            items = new ItemProperties();
             enemies = new EnemyManager(random);
             chests = new ChestManager(items, random);
             towns = new TownManager();
             npcs = new NPCManager();
 
-            dataReader.LoadData(enemies, npcs);
+            dataReader.LoadData(enemies, npcs, towns, chests);
             
-           // npc.Dialogue = "To my north is water. You cannot cross without a boat.\nTo my east is a mountain. You cannot hike up the mountain.";
             HUD = new Hud();
             player = new Player(enemies, chests, towns, shops, npcs, HUD, items);
             towns.SetPlayer(player);
             
             HUD.findTargets(player, enemies.GetEnemies());
-            chests.chestInitialize();
             enemies.enemyInitialize(player, enemies);
             chests.FindPlayer(player);
             Renderer.FindPlayer(player);

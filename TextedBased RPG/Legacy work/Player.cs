@@ -37,7 +37,7 @@ namespace TextedBased_RPG
 
 
 
-        public Player(EnemyManager enemyManagerTarget, ChestManager chestManager, TownManager townTarget, List<Shop> shopsTarget, NPCManager npcTarget, Hud HUDTarget, ItemManager itemTarget)
+        public Player(EnemyManager enemyManagerTarget, ChestManager chestManager, TownManager townTarget, List<Shop> shopsTarget, NPCManager npcTarget, Hud HUDTarget, ItemProperties itemTarget)
         {
             npcs = npcTarget;
             chests = chestManager;
@@ -190,7 +190,7 @@ namespace TextedBased_RPG
             {
                 if(potionNumber > 0)
                 {
-                    UseItem(ITEM.POTION); 
+                    UseItem("Potion"); 
                     potionNumber = potionNumber - 1;
                 } else
                 {

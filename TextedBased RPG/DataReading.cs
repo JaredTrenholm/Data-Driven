@@ -9,7 +9,7 @@ namespace TextedBased_RPG
     class DataReading
     {
         static List<Action> methodList = new List<Action>();
-        static string[] fileNames = { "Enemy", "NPC", "Towns"};
+        static string[] fileNames = { "Enemy", "NPC", "Towns", "Chests"};
 
 
         // EXAMPLE OF USING TXT TO LOAD METHODS
@@ -55,7 +55,7 @@ namespace TextedBased_RPG
             }
         }*/
 
-        public void LoadData(EnemyManager enemyManager, NPCManager npcManager, TownManager townManager)
+        public void LoadData(EnemyManager enemyManager, NPCManager npcManager, TownManager townManager, ChestManager chestManager)
         {
             string[] fileLoaded;
             for(int i = 0; i < fileNames.Length; i++)
@@ -72,6 +72,49 @@ namespace TextedBased_RPG
                     case "Towns":
                         ParseTown(fileLoaded, townManager);
                         break;
+                    case "Chests":
+                        ParseChest(fileLoaded, chestManager);
+                        break;
+                }
+            }
+        }
+        private void ParseChest(string[] fileLoaded, ChestManager chestManager)
+        {
+            string item = "";
+            int xPos = -1;
+            int yPos = -1;
+            for (int i = 0; i < fileLoaded.Length; i++)
+            {
+                string[] lineSplit = fileLoaded[i].Split('=');
+                for (int x = 0; x < lineSplit.Length; x++)
+                {
+                    if (lineSplit[x].ToLower() == "item")
+                    {
+                        item = lineSplit[x + 1];
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "x")
+                    {
+                        xPos = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "y")
+                    {
+                        yPos = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (xPos != -1 && yPos != -1 && item != "")
+                    {
+                        chestManager.CreateChest(item.ToLower(), xPos, yPos);
+                        item = "";
+                        xPos = -1;
+                        yPos = -1;
+                        break;
+                    }
+
                 }
             }
         }

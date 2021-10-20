@@ -27,7 +27,7 @@ namespace TextedBased_RPG
         protected int movementType = 0;   // 0 = normal; 1 = aquatic; 2 = mountain; 3 = flying;
         protected int SpeciesType = 0;   // 0 = normal; 1 = aquatic; 2 = mountain; 3 = flying;
 
-        protected ItemManager items;
+        protected ItemProperties items;
 
         public ITEM HeldWeapon { get { return heldWeapon; } set { heldWeapon = value; } }
 
@@ -141,13 +141,13 @@ namespace TextedBased_RPG
             attack = baseAttack + BonusAttack;
         }
 
-        public void UseItem(ITEM itemID)
+        public void UseItem(string itemID)
         {
-            if (items.GetItemName(itemID) == "None")
+            if (items.CheckItemName(itemID))
             {
                 
             }
-            else if (items.GetItemName(itemID) == "Potion")
+            else if (items.CheckItemName(itemID))
             {
                 health = health + Global.POTION_HEAL;
                 if (health > maxHealth)

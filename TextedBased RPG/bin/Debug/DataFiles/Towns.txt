@@ -1,1 +1,4 @@
-﻿
+﻿name=Cido
+dialogue=Out East, there is an island. It's small, but something has to be there right?
+x=17
+y=10

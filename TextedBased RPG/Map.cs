@@ -32,32 +32,28 @@ namespace TextedBased_RPG
 
         
 
-        public static void LoadMap(int mapID)
+        public static void LoadMap()
         {
             string[] mapLoaded;
-            if (mapID == 0)
+            mapLoaded = System.IO.File.ReadAllLines("DataFiles/Overworld.txt");
+            mapData = new string[Global.MAP_Y_LENGTH, Global.MAP_X_LENGTH];
+            for (int x = 0; x < Global.MAP_Y_LENGTH; x++)
             {
-                mapLoaded = System.IO.File.ReadAllLines("DataFiles/Overworld.txt");
-                mapData = new string[Global.MAP_Y_LENGTH, Global.MAP_X_LENGTH];
-                for (int x = 0; x < Global.MAP_Y_LENGTH; x++)
+                string[] mapLineSplit = mapLoaded[x].Split(' ');
+                for (int y = 0; y < Global.MAP_X_LENGTH; y++)
                 {
-                    string[] mapLineSplit = mapLoaded[x].Split(' ');
-                    for (int y = 0; y < Global.MAP_X_LENGTH; y++)
+                    try
                     {
-                        try
-                        {
-                                mapData[x, y] = mapLineSplit[y];
-                        }
-                        catch
-                        {
-                                Console.WriteLine(x + ", " + y);
-                                Console.ReadKey(true);
-                        }
+                            mapData[x, y] = mapLineSplit[y];
+                    }
+                    catch
+                    {
+                            Console.WriteLine(x + ", " + y);
+                            Console.ReadKey(true);
                     }
                 }
-                Renderer.LoadRender(mapData);
-                
             }
+            Renderer.LoadRender(mapData);
         }
 
         public static void FindPlayer(Player playerTarget)

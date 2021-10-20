@@ -8,68 +8,48 @@ namespace TextedBased_RPG
 {
     class ChestManager
     {
-        private int chestAmount = 15;
+        private int chestAmount = 999;
+        private int chestCount;
         private Chest[] chest;
-        private ItemManager items;
+        private ItemProperties items;
         private Random random;
 
 
-        public ChestManager(ItemManager itemTarget, Random randomTarget)
+        public ChestManager(ItemProperties itemTarget, Random randomTarget)
         {
             chest = new Chest[chestAmount];
             items = itemTarget;
             random = randomTarget;
         }
-
-        public void chestInitialize()
+        public void CreateChest(string item, int xPos, int yPos)
         {
-            int contents = 99; 
-            chest[0] = new Chest(ITEMTYPE.ITEM, ITEM.RAFT, items, random);
-            for (int z = 1; z < chestAmount; z++)
-            {
-                int randomNumber;
-                randomNumber = random.Next(1, 10);
-                if (randomNumber >= 5)
-                { 
-                    contents = (int)ITEM.POTION;
-                }
-                else if (randomNumber <= 6)
-                {
-                    contents = (int)ITEM.MONEY;
-                    //Console.ReadKey(true);
-                }
-                chest[z] = new Chest(ITEMTYPE.ITEM, (ITEM)contents, items, random);
+            
+            switch (item) {
+                case "sword":
+                    chest[chestCount] = new Chest(1, ITEM.SWORD, items, random);
+                    break;
+                case "raft":
+                    chest[chestCount] = new Chest(0, ITEM.RAFT, items, random);
+                    break;
+                case "bow":
+                    chest[chestCount] = new Chest(1, ITEM.BOW, items, random);
+                    break;
+                case "potion":
+                    chest[chestCount] = new Chest(0, ITEM.POTION, items, random);
+                    break;
+                case "money":
+                    chest[chestCount] = new Chest(0, ITEM.MONEY, items, random);
+                    break;
+                default:
+                    chest[chestCount] = new Chest(0, ITEM.MONEY, items, random);
+                    break;
             }
-
-            //changes?
-            chest[1].ChangeID(ITEM.RAFT);
-            chest[2].ChangeID(ITEM.BOW);
-            chest[2].ChangeType(ITEMTYPE.WEAPON);
-            chest[3].ChangeID(ITEM.SWORD);
-            chest[3].ChangeType(ITEMTYPE.WEAPON);
-
-            //chest postitions
-            chest[0].SetPos(12, 26);
-            chest[1].SetPos(11, 2);
-            chest[2].SetPos(13, 3);
-            chest[3].SetPos(12, 1);
-            chest[4].SetPos(1, 3);
-            chest[5].SetPos(0, 13);
-            chest[7].SetPos(4, 15);
-            chest[6].SetPos(6, 21);
-            chest[8].SetPos(10, 23);
-            chest[9].SetPos(18, 23);
-            chest[10].SetPos(23, 21);
-            chest[11].SetPos(15, 9);
-            chest[12].SetPos(22, 7);
-            chest[13].SetPos(27, 3);
-            chest[14].SetPos(27, 0);
-
+            chest[chestCount].SetPos(xPos, yPos);
+            chestCount += 1;
         }
-
         public void FindPlayer(Player playerTarget)
         {
-            for(int z = 0; z < chestAmount; z++)
+            for(int z = 0; z < chestCount; z++)
             {
                 chest[z].FindPlayer(playerTarget);
             }
@@ -77,7 +57,7 @@ namespace TextedBased_RPG
 
         public void Draw()
         {
-            for (int z = 0; z < chestAmount; z++)
+            for (int z = 0; z < chestCount; z++)
             {
                 chest[z].Draw();
             }
@@ -86,7 +66,7 @@ namespace TextedBased_RPG
         public Chest LocateChest(int x, int y)
         {
             Chest chestTarget = null;
-            for (int z = 0; z < chestAmount; z++)
+            for (int z = 0; z < chestCount; z++)
             {
                 if ((chest[z].xPos == x) && (chest[z].yPos == y) && (chest[z].Opened == false))
                 {

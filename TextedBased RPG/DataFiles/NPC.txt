@@ -1,3 +1,3 @@
-﻿dialogue=To my north is water. You cannot cross without a boat. To my east is a mountain. You cannot hike up the mountain.
-x=10
+﻿dialogue=There is water everywhere. Water is something you cannot cross without a boat, right? What will we do?
+x=21
 y=10

@@ -21,11 +21,11 @@ namespace TextedBased_RPG
         private int attackChange = 0;
 
         private Random random;
-        private ITEM ItemID;
-        private ITEMTYPE itemType;
-        private ItemManager items;
+        private int ItemID;
+        private int itemType;
+        private ItemProperties items;
 
-        public Chest(ITEMTYPE itemTypeTarget, ITEM itemIDTarget, ItemManager itemTarget, Random randomTarget)
+        public Chest(int itemTypeTarget, int itemIDTarget, ItemProperties itemTarget, Random randomTarget)
         {
             itemType = itemTypeTarget;
             ItemID = itemIDTarget;
@@ -35,11 +35,11 @@ namespace TextedBased_RPG
             items = itemTarget;
             random = randomTarget;
         }
-        public void ChangeType(ITEMTYPE itemTypeTarget)
+        public void ChangeType(int itemTypeTarget)
         {
             itemType = itemTypeTarget;
         }
-        public void ChangeID(ITEM itemIDTarget)
+        public void ChangeID(int itemIDTarget)
         {
             ItemID = itemIDTarget;
         }
@@ -68,13 +68,13 @@ namespace TextedBased_RPG
         {
             if(Opened == false)
             {
-                if (itemType == ITEMTYPE.WEAPON)
+                if (itemType == items.GetWeaponTypeID())
                 {
                     for(int x = 0; x < 1;)
                     {
                         Console.Clear();
-                        Console.WriteLine(player.GetName() + " have found a " + items.GetWeaponName(ItemID));
-                        attackChange = player.baseAttack + items.GetWeaponAttack(ItemID);
+                        Console.WriteLine(player.GetName() + " have found a " + items.GetWeaponName(itemType));
+                        attackChange = player.baseAttack + items.GetWeaponAttack(itemType);
                         Console.WriteLine("It will change your attack to " + attackChange + " from " + player.attack +".");
                         Console.WriteLine("Equip it? Y/N");
 

@@ -33,3 +33,4 @@ C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\Texted
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Enemy.txt
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\NPC.txt
 C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Towns.txt
+C:\Users\w0435500\Downloads\TextedBased-RPG-main (2)\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Chests.txt

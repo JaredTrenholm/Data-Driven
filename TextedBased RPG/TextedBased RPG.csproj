@@ -82,6 +82,12 @@
     <Content Include="DataFiles\Enemy.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="DataFiles\EnemyTypes.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataFiles\Player.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DataFiles\ItemPropertiesAndNames.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

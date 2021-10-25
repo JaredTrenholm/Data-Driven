@@ -23,6 +23,27 @@ namespace TextedBased_RPG
 
 
         public static string PLAYER_NAME = "You";
+
+        public static string MONEY_NAME = "Gold";
+
         public static string BOSS_NAME = "Serdun";
+        public static string BOSS_AVATAR = "B";
+        public static int BOSS_HEALTH = 100;
+        public static int BOSS_ATTACK = 10;
+
+        public static string DOG_NAME = "Dog";
+        public static string DOG_AVATAR = "D";
+        public static int DOG_HEALTH = 10;
+        public static int DOG_ATTACK = 1;
+
+        public static string SLIME_NAME = "Slime";
+        public static string SLIME_AVATAR = "S";
+        public static int SLIME_HEALTH = 10;
+        public static int SLIME_ATTACK = 1;
+
+        public static string BANDIT_NAME = "Bandit";
+        public static string BANDIT_AVATAR = "E";
+        public static int BANDIT_HEALTH = 10;
+        public static int BANDIT_ATTACK = 10;
     }
 }

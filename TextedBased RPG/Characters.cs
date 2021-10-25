@@ -139,7 +139,7 @@ namespace TextedBased_RPG
                 heldWeapon = ITEM.BOW;
                 BonusAttack = 5;
             }
-            attack = baseAttack + BonusAttack;
+            attack = Global.BASE_ATTACK + BonusAttack;
         }
 
         public void UseItem(ITEM itemID)

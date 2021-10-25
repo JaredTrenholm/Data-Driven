@@ -20,15 +20,32 @@ namespace TextedBased_RPG
             items = itemTarget;
             random = randomTarget;
         }
-        public void CreateChest(ITEM type, int x, int y)
+        public void CreateChest(string type, int x, int y)
         {
-            if(type == ITEM.BOW || type == ITEM.SWORD)
+            chest[chestAmount] = new Chest(items);
+            if(type.ToLower() == items.bowName.ToLower())
             {
-                chest[chestAmount].ChangeID(type);
+                chest[chestAmount].ChangeID(ITEM.BOW);
                 chest[chestAmount].ChangeType(ITEMTYPE.WEAPON);
-            } else
+            }
+            else if(type.ToLower() == items.swordName.ToLower())
             {
-                chest[chestAmount].ChangeID(type);
+                chest[chestAmount].ChangeID(ITEM.SWORD);
+                chest[chestAmount].ChangeType(ITEMTYPE.WEAPON);
+            }
+            else if (type.ToLower() == items.boatName.ToLower())
+            {
+                chest[chestAmount].ChangeID(ITEM.RAFT);
+                chest[chestAmount].ChangeType(ITEMTYPE.ITEM);
+            }
+            else if (type.ToLower() == items.potionName.ToLower())
+            {
+                chest[chestAmount].ChangeID(ITEM.POTION);
+                chest[chestAmount].ChangeType(ITEMTYPE.ITEM);
+            }
+            else if (type.ToLower() == items.moneyName.ToLower())
+            {
+                chest[chestAmount].ChangeID(ITEM.MONEY);
                 chest[chestAmount].ChangeType(ITEMTYPE.ITEM);
             }
             chest[chestAmount].SetPos(x, y);

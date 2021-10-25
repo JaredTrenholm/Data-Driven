@@ -46,3 +46,5 @@ C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\Te
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\TextedBased RPG.exe.config
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\TextedBased RPG.exe
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\TextedBased RPG.pdb
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\ItemPropertiesAndNames.txt
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Player.txt

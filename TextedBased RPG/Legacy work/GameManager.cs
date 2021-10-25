@@ -92,11 +92,7 @@ namespace TextedBased_RPG
                 enemies.Update();
                 player.Update();
             }
-
             GameEnding();
-
-
-
         }  
 
         private void InitObjects()
@@ -111,15 +107,14 @@ namespace TextedBased_RPG
             towns = new TownManager();
             npcs = new NPCManager();
 
-            dataReader.LoadData(enemies, npcs, towns, chests);
             
             HUD = new Hud();
             player = new Player(enemies, chests, towns, shops, npcs, HUD, items);
+            dataReader.LoadData(enemies, npcs, towns, chests, items, player);
             towns.SetPlayer(player);
             
             HUD.findTargets(player, enemies.GetEnemies());
             enemies.enemyInitialize(player, enemies);
-            chests.chestInitialize();
             chests.FindPlayer(player);
             Renderer.FindPlayer(player);
             Map.FindPlayer(player);

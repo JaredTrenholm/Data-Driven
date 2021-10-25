@@ -23,7 +23,7 @@ namespace TextedBased_RPG
 
 
         public int potionNumber = 0;
-        private int money;
+        public int money;
 
 
         private ChestManager chests;
@@ -51,13 +51,21 @@ namespace TextedBased_RPG
             Alive = true;
             CharacterX = 14;
             CharacterY = 5;
-            attack = baseAttack;
+            attack = Global.BASE_ATTACK;
             SetSpeciesType(0);
             HUD = HUDTarget;
             items = itemTarget;
         }
         public int Money { get { return money; } }
-
+        public void ChangeHealth(int targetHealth)
+        {
+            maxHealth = targetHealth;
+            health = maxHealth;
+        }
+        public void ChangeAttack(int targetAttack)
+        {
+            attack = targetAttack;
+        }
         public void Draw()
         {
             Renderer.RenderData[CharacterY, CharacterX] = "@";

@@ -1,0 +1,21 @@
+﻿WeaponOneName=Fist
+WeaponOneDamage=0
+Price = 10
+
+WeaponTwoName=Bow
+WeaponTwoDamage=15
+Price = 10
+
+WeaponThreeName=Sword
+WeaponThreeDamage=20
+Price = 10
+
+BoatName=Boat
+Price = 10
+
+PotionName=Potion
+PotionHealing=25
+Price = 10
+
+MoneyName=Gold
+MoneyValue=10

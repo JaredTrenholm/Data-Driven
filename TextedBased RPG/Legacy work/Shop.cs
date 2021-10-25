@@ -9,13 +9,13 @@ namespace TextedBased_RPG
     class Shop : InteractiveArea
     {
         private int tax = 0; // added to sold items, set in constructor
-        private ItemProperties items; 
+        private ItemManager items; 
         public List<ITEM> itemsInShop = new List<ITEM>(); 
         private string itemsToBuy; // string that shows what player can  buy  at the shop
         private string itemsToSell; // ^^ but                            sell
 
         //constructor
-        public Shop(string name, string DesiredDialogue, int x, int y, ItemProperties itemsTarget, List<ITEM> itemsForStock, int thisShopTax) : base(name, DesiredDialogue)
+        public Shop(string name, string DesiredDialogue, int x, int y, ItemManager itemsTarget, List<ITEM> itemsForStock, int thisShopTax) : base(name, DesiredDialogue)
         {
             base.x = x;
             base.y = y;

@@ -9,72 +9,85 @@ namespace TextedBased_RPG
     class DataReading
     {
         static List<Action> methodList = new List<Action>();
-        static string[] fileNames = { "Enemy", "NPC", "Towns", "Chests"};
-
-
-        // EXAMPLE OF USING TXT TO LOAD METHODS
-        /*static void Main(string[] args)
-        {
-            LoadData();
-            foreach (var i in methodList)
-            {
-                i();
-            }
-            Console.ReadKey(true);
-        }
-        static void Fire()
-        {
-            Console.WriteLine("FIRE!");
-        }
-        static void Reload()
-        {
-            Console.WriteLine("Reload!");
-        }
-        static void Surrender()
-        {
-            Console.WriteLine("Surrender...");
-        }
-
-        static void AddMethod(string methodToAdd)
-        {
-            switch (methodToAdd)
-            {
-                case "Fire":
-                    methodList.Add(Fire);
-                    break;
-                case "Reload":
-                    methodList.Add(Reload);
-                    break;
-                case "Surrender":
-                    methodList.Add(Surrender);
-                    break;
-                default:
-                    Console.WriteLine(methodToAdd + " is not a method and therefore cannot be called from your data file.");
-                    Console.ReadKey(true);
-                    break;
-            }
-        }*/
+        static string[] fileNames = { "ItemPropertiesAndNames", "Enemy", "NPC", "Towns", "Chests"};
 
         public void LoadData(EnemyManager enemyManager, NPCManager npcManager, TownManager townManager, ChestManager chestManager)
         {
-            string[] fileLoaded;
-            for(int i = 0; i < fileNames.Length; i++)
+            try
             {
-                fileLoaded = System.IO.File.ReadAllLines("DataFiles/" + fileNames[i] + ".txt");
+                string[] fileLoaded;
+                for (int i = 0; i < fileNames.Length; i++)
+                {
+                    fileLoaded = System.IO.File.ReadAllLines("DataFiles/" + fileNames[i] + ".txt");
 
-                switch (fileNames[i]) {
-                    case "Enemy":
-                        ParseEnemies(fileLoaded, enemyManager);
-                        break;
-                    case "NPC":
-                        ParseNPC(fileLoaded, npcManager);
-                        break;
-                    case "Towns":
-                        ParseTown(fileLoaded, townManager);
-                        break;
-                    case "Chests":
-                        ParseChest(fileLoaded, chestManager);
-                        break;
+                    switch (fileNames[i])
+                    {
+                        case "ItemPropertiesAndNames":
+                            break;
+                        case "Enemy":
+                            ParseEnemies(fileLoaded, enemyManager);
+                            break;
+                        case "NPC":
+                            ParseNPC(fileLoaded, npcManager);
+                            break;
+                        case "Towns":
+                            ParseTown(fileLoaded, townManager);
+                            break;
+                        case "Chests":
+                            ParseChest(fileLoaded, chestManager);
+                            break;
+                    }
+                }
+            } catch
+            {
+                Console.Clear();
+                Console.WriteLine("There is an error with your data files. Things like typos, blank values, or missing files will cause this.");
+                Console.ReadKey(true);
+            }
+        }
+        private void ParseItemProperties(string[] fileLoaded, ItemManager itemManager)
+        {
+            for (int i = 0; i < fileLoaded.Length; i++)
+            {
+                string[] lineSplit = fileLoaded[i].Split('=');
+                for (int x = 0; x < lineSplit.Length; x++)
+                {
+                    if (lineSplit[x].ToLower() == "weapononename")
+                    {
+                        itemManager.fistName = lineSplit[x + 1];
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "weapontwoname")
+                    {
+                        itemManager.bowName = lineSplit[x + 1];
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "weaponthreename")
+                    {
+                        itemManager.swordName = lineSplit[x + 1];
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "weapononedamage")
+                    {
+                        itemManager.fistDamage = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "weapontwodamage")
+                    {
+                        itemManager.bowDamage = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "weaponthreedamage")
+                    {
+                        itemManager.fistDamage = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
                 }
             }
         }

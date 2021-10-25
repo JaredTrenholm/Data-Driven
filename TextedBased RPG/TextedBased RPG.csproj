@@ -58,7 +58,7 @@
     <Compile Include="Legacy work\GameManager.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="Legacy work\Hud.cs" />
-    <Compile Include="Legacy work\ItemProperties.cs" />
+    <Compile Include="Legacy work\ItemManager.cs" />
     <Compile Include="Legacy work\ChestManager.cs" />
     <Compile Include="Legacy work\InteractiveArea.cs" />
     <Compile Include="Legacy work\Shop.cs" />
@@ -80,6 +80,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="DataFiles\Enemy.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DataFiles\ItemPropertiesAndNames.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="DataFiles\NPC.txt">

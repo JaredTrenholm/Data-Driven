@@ -37,7 +37,7 @@ namespace TextedBased_RPG
 
 
 
-        public Player(EnemyManager enemyManagerTarget, ChestManager chestManager, TownManager townTarget, List<Shop> shopsTarget, NPCManager npcTarget, Hud HUDTarget, ItemProperties itemTarget)
+        public Player(EnemyManager enemyManagerTarget, ChestManager chestManager, TownManager townTarget, List<Shop> shopsTarget, NPCManager npcTarget, Hud HUDTarget, ItemManager itemTarget)
         {
             npcs = npcTarget;
             chests = chestManager;
@@ -80,7 +80,7 @@ namespace TextedBased_RPG
                 town.EnterTown();
             }
             for (int i = 0; i < shops.Count; i++)
-            { 
+            {
                 if (CharacterX == shops[i].x)
                 {
                     if (CharacterY == shops[i].y)
@@ -92,8 +92,8 @@ namespace TextedBased_RPG
 
             CheckHealth();
         }
-            
-       
+
+
         private void CheckPlayerInput()
         {
             int xModified = 0;
@@ -105,7 +105,7 @@ namespace TextedBased_RPG
             }
             else if (input == ConsoleKey.A.ToString())
             {
-                xModified = CharacterX-1;
+                xModified = CharacterX - 1;
                 yModified = CharacterY;
             }
             else if (input == ConsoleKey.S.ToString())
@@ -119,7 +119,7 @@ namespace TextedBased_RPG
                 yModified = CharacterY;
             }
 
-            if ((xModified < 0) || (xModified >= Global.MAP_X_LENGTH+1))
+            if ((xModified < 0) || (xModified >= Global.MAP_X_LENGTH + 1))
             {
                 xModified = CharacterX;
             }
@@ -129,7 +129,7 @@ namespace TextedBased_RPG
             }
 
             targetFoe = enemies.LocateEnemy(xModified, yModified);
-            if(targetFoe != null)
+            if (targetFoe != null)
             {
                 PlayerAttackMessage = GetName() + " attacked " + targetFoe.GetName() + " for " + attack + " points of damage!";
                 targetFoe.TakeDamage(attack);
@@ -137,7 +137,8 @@ namespace TextedBased_RPG
                 AttackOrMove = false;
                 Moving = false;
                 Renderer.TileDesc("You are engaged in a fight.");
-            } else
+            }
+            else
             {
                 AttackOrMove = true;
                 HUD.GetEnemy(targetFoe);
@@ -155,17 +156,19 @@ namespace TextedBased_RPG
             }
 
             string tile = Map.GetTile(yModified, xModified);
-            if(tile == "~")
+            if (tile == "~")
             {
                 if (hasBoat == false)
                 {
                     Moving = false;
                     Renderer.TileDesc("You cannot cross without a boat.");
-                } else
+                }
+                else
                 {
                     Moving = true;
                 }
-            } else if (tile == "^")
+            }
+            else if (tile == "^")
             {
                 Moving = false;
                 Renderer.TileDesc("You cannot cross the mountains!");
@@ -180,7 +183,7 @@ namespace TextedBased_RPG
             }
 
         }
-        
+
         public void MovePlayer()
         {
             Console.SetCursorPosition(0, 0);
@@ -188,11 +191,12 @@ namespace TextedBased_RPG
             input = Console.ReadKey(true).Key.ToString();
             if (input == ConsoleKey.P.ToString())
             {
-                if(potionNumber > 0)
+                if (potionNumber > 0)
                 {
-                    UseItem("Potion"); 
+                    UseItem(ITEM.POTION);
                     potionNumber = potionNumber - 1;
-                } else
+                }
+                else
                 {
                     Console.Clear();
                     Console.WriteLine("You do not have potions to use.");
@@ -204,15 +208,15 @@ namespace TextedBased_RPG
             {
                 CheckPlayerInput();
             }
-            
+
             if (AttackOrMove == false)
             {
-                
-                
+
+
             }
-            else 
+            else
             {
-                if((CharacterX < 0) || (CharacterX == Global.MAP_X_LENGTH + 1))
+                if ((CharacterX < 0) || (CharacterX == Global.MAP_X_LENGTH + 1))
                 {
                     Moving = false;
                 }
@@ -327,7 +331,7 @@ namespace TextedBased_RPG
                     Renderer.TileDesc();
                 }
             }
-            
+
         }
 
         public void CashGain(int amount)

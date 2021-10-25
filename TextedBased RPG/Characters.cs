@@ -14,8 +14,8 @@ namespace TextedBased_RPG
         public int maxHealth;
         public bool Alive;
         public int MinPos = 0;
-        public int MaxPosY = Global.MAP_Y_LENGTH-1;
-        public int MaxPosX = Global.MAP_X_LENGTH-1;
+        public int MaxPosY = Global.MAP_Y_LENGTH - 1;
+        public int MaxPosX = Global.MAP_X_LENGTH - 1;
         public int CharacterX;
         public int CharacterY;
         protected int Damagetaken;
@@ -27,7 +27,7 @@ namespace TextedBased_RPG
         protected int movementType = 0;   // 0 = normal; 1 = aquatic; 2 = mountain; 3 = flying;
         protected int SpeciesType = 0;   // 0 = normal; 1 = aquatic; 2 = mountain; 3 = flying;
 
-        protected ItemProperties items;
+        protected ItemManager items;
 
         public ITEM HeldWeapon { get { return heldWeapon; } set { heldWeapon = value; } }
 
@@ -102,14 +102,14 @@ namespace TextedBased_RPG
 
         public void TakeDamage(int damage)
         {
-            
-            if(damage > health)
+
+            if (damage > health)
             {
                 damage = health;
                 Damagetaken = damage;
                 health = 0;
                 Alive = false;
-               
+
             }
             else
             {
@@ -120,13 +120,14 @@ namespace TextedBased_RPG
 
         public void WeaponChange(ITEM WeaponID)
         {
-            
-            if(WeaponID == ITEM.NULL)
+
+            if (WeaponID == ITEM.NULL)
             {
                 Weapon = items.GetWeaponName(WeaponID);
                 heldWeapon = ITEM.NULL;
                 BonusAttack = 0;
-            } else if (WeaponID == ITEM.SWORD)
+            }
+            else if (WeaponID == ITEM.SWORD)
             {
                 Weapon = items.GetWeaponName(WeaponID);
                 heldWeapon = ITEM.SWORD;
@@ -135,19 +136,19 @@ namespace TextedBased_RPG
             else if (WeaponID == ITEM.BOW)
             {
                 Weapon = items.GetWeaponName(WeaponID);
-                heldWeapon = ITEM.BOW; 
+                heldWeapon = ITEM.BOW;
                 BonusAttack = 5;
             }
             attack = baseAttack + BonusAttack;
         }
 
-        public void UseItem(string itemID)
+        public void UseItem(ITEM itemID)
         {
-            if (items.CheckItemName(itemID))
+            if (items.GetItemName(itemID) == "None")
             {
-                
+
             }
-            else if (items.CheckItemName(itemID))
+            else if (items.GetItemName(itemID) == "Potion")
             {
                 health = health + Global.POTION_HEAL;
                 if (health > maxHealth)
@@ -157,6 +158,6 @@ namespace TextedBased_RPG
             }
         }
 
-        
+
     }
 }

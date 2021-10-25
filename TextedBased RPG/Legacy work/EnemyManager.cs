@@ -65,7 +65,7 @@ namespace TextedBased_RPG
                         bossID = enemyCount;
                     } else
                     {
-                        enemy[enemyCount] = new Slime(random);
+                        enemy[enemyCount] = new Bandit(random);
                     }
                     break;
                 default:

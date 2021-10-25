@@ -22,7 +22,7 @@ namespace TextedBased_RPG
 
         private GameLoopConditionals gameLoop;
 
-        private ItemProperties items;
+        private ItemManager items;
 
         List<ITEM> stockListForShop1 = new List<ITEM>();
         List<ITEM> stockListForShop2 = new List<ITEM>();
@@ -105,7 +105,7 @@ namespace TextedBased_RPG
 
             DataReading dataReader = new DataReading();
 
-            items = new ItemProperties();
+            items = new ItemManager();
             enemies = new EnemyManager(random);
             chests = new ChestManager(items, random);
             towns = new TownManager();
@@ -119,6 +119,7 @@ namespace TextedBased_RPG
             
             HUD.findTargets(player, enemies.GetEnemies());
             enemies.enemyInitialize(player, enemies);
+            chests.chestInitialize();
             chests.FindPlayer(player);
             Renderer.FindPlayer(player);
             Map.FindPlayer(player);

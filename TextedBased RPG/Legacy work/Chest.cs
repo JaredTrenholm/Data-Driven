@@ -21,11 +21,11 @@ namespace TextedBased_RPG
         private int attackChange = 0;
 
         private Random random;
-        private int ItemID;
-        private int itemType;
-        private ItemProperties items;
+        private ITEM ItemID;
+        private ITEMTYPE itemType;
+        private ItemManager items;
 
-        public Chest(int itemTypeTarget, int itemIDTarget, ItemProperties itemTarget, Random randomTarget)
+        public Chest(ITEMTYPE itemTypeTarget, ITEM itemIDTarget, ItemManager itemTarget, Random randomTarget)
         {
             itemType = itemTypeTarget;
             ItemID = itemIDTarget;
@@ -35,11 +35,11 @@ namespace TextedBased_RPG
             items = itemTarget;
             random = randomTarget;
         }
-        public void ChangeType(int itemTypeTarget)
+        public void ChangeType(ITEMTYPE itemTypeTarget)
         {
             itemType = itemTypeTarget;
         }
-        public void ChangeID(int itemIDTarget)
+        public void ChangeID(ITEM itemIDTarget)
         {
             ItemID = itemIDTarget;
         }
@@ -52,7 +52,7 @@ namespace TextedBased_RPG
             if (Opened == false)
             {
 
-                    Renderer.RenderData[yPos, xPos] = "C";
+                Renderer.RenderData[yPos, xPos] = "C";
             }
             else
             {
@@ -66,31 +66,33 @@ namespace TextedBased_RPG
         }
         public void CheckChest()
         {
-            if(Opened == false)
+            if (Opened == false)
             {
-                if (itemType == items.GetWeaponTypeID())
+                if (itemType == ITEMTYPE.WEAPON)
                 {
-                    for(int x = 0; x < 1;)
+                    for (int x = 0; x < 1;)
                     {
                         Console.Clear();
-                        Console.WriteLine(player.GetName() + " have found a " + items.GetWeaponName(itemType));
-                        attackChange = player.baseAttack + items.GetWeaponAttack(itemType);
-                        Console.WriteLine("It will change your attack to " + attackChange + " from " + player.attack +".");
+                        Console.WriteLine(player.GetName() + " have found a " + items.GetWeaponName(ItemID));
+                        attackChange = player.baseAttack + items.GetWeaponAttack(ItemID);
+                        Console.WriteLine("It will change your attack to " + attackChange + " from " + player.attack + ".");
                         Console.WriteLine("Equip it? Y/N");
 
                         input = Console.ReadKey(true).Key.ToString();
-                        if(input == ConsoleKey.Y.ToString())
+                        if (input == ConsoleKey.Y.ToString())
                         {
                             player.WeaponChange(ItemID);
                             x = 1;
                             Opened = true;
-                        } else if (input == ConsoleKey.N.ToString())
+                        }
+                        else if (input == ConsoleKey.N.ToString())
                         {
                             x = 1;
                         }
 
                     }
-                } else if (itemType == ITEMTYPE.ITEM)
+                }
+                else if (itemType == ITEMTYPE.ITEM)
                 {
                     for (int x = 0; x < 1;)
                     {
@@ -122,8 +124,8 @@ namespace TextedBased_RPG
                         else if (ItemID == ITEM.MONEY)
                         {
                             int money;
-                            money = random.Next(5, 15);
-                            Console.WriteLine($"player found {money} dollars");
+                            money = items.moneyValue;
+                            Console.WriteLine($"player found {money} " + items.GetItemName(ITEM.MONEY));
                             player.CashGain(money);
                             Opened = true;
                             Console.ReadKey(true);
@@ -131,7 +133,7 @@ namespace TextedBased_RPG
                         }
                     }
                 }
-            Console.Clear();
+                Console.Clear();
             }
 
         }

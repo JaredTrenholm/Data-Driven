@@ -107,7 +107,7 @@ namespace TextedBased_RPG
                             Console.ReadKey(true);
                             x = 1;
                         }
-                        else if (ItemID == ITEM.RAFT)
+                        else if (ItemID == ITEM.BOAT)
                         {
                             Console.WriteLine(player.GetName() + " can now travel on water!");
                             player.hasBoat = true;

@@ -12,7 +12,7 @@ namespace TextedBased_RPG
         SWORD,
         BOW,
         POTION,
-        RAFT,
+        BOAT,
         MONEY
     }
     enum ITEMTYPE
@@ -66,7 +66,7 @@ namespace TextedBased_RPG
                 }
                 else if (item.ToLower() == boatName.ToLower())
                 {
-                    newInventory.Add(ITEM.RAFT);
+                    newInventory.Add(ITEM.BOAT);
                 }
             }
 
@@ -116,7 +116,7 @@ namespace TextedBased_RPG
             {
                 itemName = potionName;
             }
-            else if (ItemID == ITEM.RAFT)
+            else if (ItemID == ITEM.BOAT)
             {
                 itemName = bowName;
             }
@@ -146,7 +146,7 @@ namespace TextedBased_RPG
             {
                 price = swordPrice;
             }
-            else if (itemID == ITEM.RAFT)
+            else if (itemID == ITEM.BOAT)
             {
                 price = bowPrice;
             }

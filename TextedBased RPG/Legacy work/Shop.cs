@@ -38,10 +38,10 @@ namespace TextedBased_RPG
                 itemsToBuy = itemsToBuy + $"\n{items.GetItemName(ITEM.POTION)[0]}) {items.GetItemName(ITEM.POTION)} - {items.GetItemPrice(ITEM.POTION) + tax}$";
                 itemsToSell = itemsToSell + $"\n{items.GetItemName(ITEM.POTION)[0]}) {items.GetItemName(ITEM.POTION)} - {items.GetItemPrice(ITEM.POTION) }$";
             }
-            if (itemsInShop.Contains(ITEM.RAFT))
+            if (itemsInShop.Contains(ITEM.BOAT))
             {
-                itemsToBuy = itemsToBuy + $"\n{items.GetItemName(ITEM.RAFT)[0]}) {items.GetItemName(ITEM.RAFT)} - {items.GetItemPrice(ITEM.RAFT) + tax}$";
-                itemsToSell = itemsToSell + $"\n{items.GetItemName(ITEM.RAFT)[0]}) {items.GetItemName(ITEM.RAFT)} - {items.GetItemPrice(ITEM.RAFT)}$";
+                itemsToBuy = itemsToBuy + $"\n{items.GetItemName(ITEM.BOAT)[0]}) {items.GetItemName(ITEM.BOAT)} - {items.GetItemPrice(ITEM.BOAT) + tax}$";
+                itemsToSell = itemsToSell + $"\n{items.GetItemName(ITEM.BOAT)[0]}) {items.GetItemName(ITEM.BOAT)} - {items.GetItemPrice(ITEM.BOAT)}$";
             }
             if (itemsInShop.Contains(ITEM.SWORD))
             {
@@ -102,12 +102,12 @@ namespace TextedBased_RPG
                     lastAction = "You don't have enough money.";
                 }
             }
-            else if (input == (ConsoleKey)items.GetItemName(ITEM.RAFT)[0] && itemsInShop.Contains(ITEM.RAFT))
+            else if (input == (ConsoleKey)items.GetItemName(ITEM.BOAT)[0] && itemsInShop.Contains(ITEM.BOAT))
             {
-                if (user.Money >= items.GetItemPrice(ITEM.RAFT) && !user.hasBoat)
+                if (user.Money >= items.GetItemPrice(ITEM.BOAT) && !user.hasBoat)
                 {
-                    lastAction = $"You buy a {items.GetItemName(ITEM.RAFT)} with {items.GetItemPrice(ITEM.RAFT) + tax}$";
-                    user.CashSpend(items.GetItemPrice(ITEM.RAFT) + tax);
+                    lastAction = $"You buy a {items.GetItemName(ITEM.BOAT)} with {items.GetItemPrice(ITEM.BOAT) + tax}$";
+                    user.CashSpend(items.GetItemPrice(ITEM.BOAT) + tax);
                     user.hasBoat = true;
                 }
                 else if (user.hasBoat)
@@ -135,12 +135,12 @@ namespace TextedBased_RPG
                     lastAction = "You dont have enough potions to sell";
                 }
             }
-            else if (input == (ConsoleKey)items.GetItemName(ITEM.RAFT)[0] && itemsInShop.Contains(ITEM.RAFT))
+            else if (input == (ConsoleKey)items.GetItemName(ITEM.BOAT)[0] && itemsInShop.Contains(ITEM.BOAT))
             {
                 if (user.hasBoat)
                 {
-                    lastAction = $"You sold your boat for {items.GetItemPrice(ITEM.RAFT)}";
-                    user.CashGain(items.GetItemPrice(ITEM.RAFT));
+                    lastAction = $"You sold your boat for {items.GetItemPrice(ITEM.BOAT)}";
+                    user.CashGain(items.GetItemPrice(ITEM.BOAT));
                     user.hasBoat = false;
                 }
                 else 

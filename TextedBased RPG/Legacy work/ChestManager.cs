@@ -35,7 +35,7 @@ namespace TextedBased_RPG
             }
             else if (type.ToLower() == items.boatName.ToLower())
             {
-                chest[chestAmount].ChangeID(ITEM.RAFT);
+                chest[chestAmount].ChangeID(ITEM.BOAT);
                 chest[chestAmount].ChangeType(ITEMTYPE.ITEM);
             }
             else if (type.ToLower() == items.potionName.ToLower())

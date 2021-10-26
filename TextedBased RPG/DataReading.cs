@@ -8,10 +8,9 @@ namespace TextedBased_RPG
 {
     class DataReading
     {
-        static List<Action> methodList = new List<Action>();
-        static string[] fileNames = { "ItemPropertiesAndNames", "Player","Enemy", "NPC", "Towns", "Chests"};
+        static string[] fileNames = { "ItemPropertiesAndNames", "Intro", "GoodEnding", "MediumEnding", "DeathEnding","EnemyTypes", "TitleScreen","Player", "Enemy", "NPC", "Towns", "Chests", "Shops"};
 
-        public void LoadData(EnemyManager enemyManager, NPCManager npcManager, TownManager townManager, ChestManager chestManager, ItemManager items, Player player)
+        public void LoadData(EnemyManager enemyManager, NPCManager npcManager, TownManager townManager, ChestManager chestManager, ItemManager items, Player player, ShopManager shops)
         {
             try
             {
@@ -27,10 +26,32 @@ namespace TextedBased_RPG
                         Console.Clear();
                         Console.WriteLine("You are missing the: " + fileNames[i] + ".txt file!");
                         Console.ReadKey(true);
+                        Console.Clear();
                     }
                     fileLoaded = System.IO.File.ReadAllLines("DataFiles/" + fileNames[i] + ".txt");
                     switch (fileNames[i])
                     {
+                        case "DeathEnding":
+                            Global.DEATH_ENDING = fileLoaded;
+                            break;
+                        case "MediumEnding":
+                            Global.MEDIUM_ENDING = fileLoaded;
+                            break;
+                        case "GoodEnding":
+                            Global.GOOD_ENDING = fileLoaded;
+                            break;
+                        case "Intro":
+                            Global.INTRO_TEXT = fileLoaded;
+                            break;
+                        case "TitleScreen":
+                            Global.TITLE = fileLoaded;
+                            break;
+                        case "Shops":
+                            ParseShops(fileLoaded, shops);
+                            break;
+                        case "EnemyTypes":
+                            ParseEnemyTypes(fileLoaded);
+                            break;
                         case "Player":
                             ParsePlayer(fileLoaded, player);
                             break;
@@ -56,6 +77,177 @@ namespace TextedBased_RPG
                 Console.Clear();
                 Console.WriteLine("There is an error with your data files. Things like typos, or blank values will cause this.");
                 Console.ReadKey(true);
+                Console.Clear();
+            }
+        }
+        private void ParseShops(string[] fileLoaded, ShopManager shops)
+        {
+            List<string> items = new List<string>();
+            int x = -1;
+            int y = -1;
+            int tax = -1;
+            string name = "";
+            string dialogue = "";
+            for (int i = 0; i < fileLoaded.Length; i++)
+            {
+                string[] lineSplit = fileLoaded[i].Split('=');
+
+                for (int n = 0; n < lineSplit.Length; n++)
+                {
+                    if (lineSplit[n].ToLower() == "name")
+                    {
+                        name = lineSplit[n + 1];
+                        n += 1;
+                    }
+                    else if (lineSplit[n].ToLower() == "dialogue")
+                    {
+                        dialogue = lineSplit[n + 1];
+                        n += 1;
+                    }
+                    else if (lineSplit[n].ToLower() == "x")
+                    {
+                        x = Convert.ToInt16(lineSplit[n + 1]);
+                        n += 1;
+                    }
+                    else if (lineSplit[n].ToLower() == "y")
+                    {
+                        y = Convert.ToInt16(lineSplit[n + 1]);
+                        n += 1;
+                    }
+                    else if (lineSplit[n].ToLower() == "tax")
+                    {
+                        tax = Convert.ToInt16(lineSplit[n + 1]);
+                        n += 1;
+                    }
+                    else
+                    {
+                        items.Add(lineSplit[n].ToLower());
+                    }
+
+                    if (lineSplit[n].ToLower() == "end" && x > 0 && y > 0)
+                    {
+                        if (name != "")
+                            if (dialogue != "")
+                                if (items.Count > 0)
+                                {
+                                    shops.CreateShop(name, dialogue, x, y, tax, items);
+                                    name = "";
+                                    x = -1;
+                                    y = -1;
+                                    tax = -1;
+                                    dialogue = "";
+                                    items.Clear();
+                                }
+                    }
+                }
+            }
+            if (x > 0)
+                if (y > 0)
+                    if (name != "")
+                        if (dialogue != "")
+                            if (items.Count > 0)
+                            {
+                                shops.CreateShop(name, dialogue, x, y, tax, items);
+                            }
+
+
+        }
+        private void ParseEnemyTypes(string[] fileLoaded)
+        {
+            for (int i = 0; i < fileLoaded.Length; i++)
+            {
+                string[] lineSplit = fileLoaded[i].Split('=');
+                for (int x = 0; x < lineSplit.Length; x++)
+                {
+                    if (lineSplit[x].ToLower() == "bossname")
+                    {
+                        Global.BOSS_NAME = lineSplit[x + 1];
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "bosshealth")
+                    {
+                        Global.BOSS_HEALTH = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "bossavatar")
+                    {
+                        Global.BOSS_AVATAR = lineSplit[x + 1];
+                        x += 1;
+                    }
+                    if (lineSplit[x].ToLower() == "bossattack")
+                    {
+                        Global.BOSS_ATTACK = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+                    if (lineSplit[x].ToLower() == "firstname")
+                    {
+                        Global.FIRST_NAME = lineSplit[x + 1];
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "firsthealth")
+                    {
+                        Global.FIRST_HEALTH = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "firstavatar")
+                    {
+                        Global.FIRST_AVATAR = lineSplit[x + 1];
+                        x += 1;
+                    }
+                    if (lineSplit[x].ToLower() == "firstattack")
+                    {
+                        Global.FIRST_ATTACK = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+                    if (lineSplit[x].ToLower() == "secondname")
+                    {
+                        Global.SECOND_NAME = lineSplit[x + 1];
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "secondhealth")
+                    {
+                        Global.SECOND_HEALTH = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "secondavatar")
+                    {
+                        Global.SECOND_AVATAR = lineSplit[x + 1];
+                        x += 1;
+                    }
+                    if (lineSplit[x].ToLower() == "secondattack")
+                    {
+                        Global.SECOND_ATTACK = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+                    if (lineSplit[x].ToLower() == "thirdname")
+                    {
+                        Global.THIRD_NAME = lineSplit[x + 1];
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "thirdhealth")
+                    {
+                        Global.THIRD_HEALTH = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+
+                    if (lineSplit[x].ToLower() == "thirdavatar")
+                    {
+                        Global.THIRD_AVATAR = lineSplit[x + 1];
+                        x += 1;
+                    }
+                    if (lineSplit[x].ToLower() == "thirdattack")
+                    {
+                        Global.THIRD_ATTACK = Convert.ToInt16(lineSplit[x + 1]);
+                        x += 1;
+                    }
+                }
             }
         }
         private void ParseItemProperties(string[] fileLoaded, ItemManager itemManager)
@@ -158,7 +350,6 @@ namespace TextedBased_RPG
                 }
             }
         }
-
         private void ParsePlayer(string[] fileLoaded, Player player)
         {
             for (int i = 0; i < fileLoaded.Length; i++)

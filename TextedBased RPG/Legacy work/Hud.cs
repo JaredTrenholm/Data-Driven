@@ -80,13 +80,10 @@ namespace TextedBased_RPG
             for(int x = 0; x < 1;)
             {
                 Console.Clear();
-                Console.WriteLine("┌──────────────────────────────────────────────────────────────────────────┐");
-                Console.WriteLine("│                               Text Hero                                  │");
-                Console.WriteLine("│                       Created by: Jared Trenholm                         │");
-                Console.WriteLine("│                                                                          │");
-                Console.WriteLine("│                           Move using WASD. Use potions with P.           │");
-                Console.WriteLine("│ To make choices, press the letter that is represented beside the option. │");
-                Console.WriteLine("└──────────────────────────────────────────────────────────────────────────┘");
+                foreach(string line in Global.TITLE)
+                {
+                    Console.WriteLine(line);
+                }
                 Console.WriteLine("                               ┌───────┐");
                 Console.WriteLine("                               │P) Play│");
                 Console.WriteLine("                               │Q) Quit│");
@@ -123,10 +120,11 @@ namespace TextedBased_RPG
 
         public void Intro()
         {
-            Console.WriteLine("Welcome to the land of Azara! A once mighty nation, plagued by a bandit threat.");
-            Console.WriteLine("Bandits have invaded most of the southern regions and is advancing up north quickly.");
-            Console.WriteLine("You, on your return to your home village, run into the bandit army, led by Bandit Lord, " + Global.BOSS_NAME +".");
-            Console.WriteLine("Will you defeat the bandits, or die in their war path?");
+            Console.Clear();
+            foreach (string line in Global.INTRO_TEXT)
+            {
+                Console.WriteLine(line);
+            }
             Console.WriteLine(" ");
             Console.WriteLine("Press any key to continue.");
             Console.ReadKey(true);

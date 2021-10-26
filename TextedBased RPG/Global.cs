@@ -21,6 +21,12 @@ namespace TextedBased_RPG
         public static int BASE_ATTACK = 10;
         public static int POTION_HEAL = 25;
 
+        public static string[] TITLE;
+        public static string[] INTRO_TEXT;
+
+        public static string[] DEATH_ENDING;
+        public static string[] MEDIUM_ENDING;
+        public static string[] GOOD_ENDING;
 
         public static string PLAYER_NAME = "You";
 
@@ -31,19 +37,19 @@ namespace TextedBased_RPG
         public static int BOSS_HEALTH = 100;
         public static int BOSS_ATTACK = 10;
 
-        public static string DOG_NAME = "Dog";
-        public static string DOG_AVATAR = "D";
-        public static int DOG_HEALTH = 10;
-        public static int DOG_ATTACK = 1;
+        public static string FIRST_NAME = "Dog";
+        public static string FIRST_AVATAR = "D";
+        public static int FIRST_HEALTH = 10;
+        public static int FIRST_ATTACK = 1;
 
-        public static string SLIME_NAME = "Slime";
-        public static string SLIME_AVATAR = "S";
-        public static int SLIME_HEALTH = 10;
-        public static int SLIME_ATTACK = 1;
+        public static string SECOND_NAME = "Slime";
+        public static string SECOND_AVATAR = "S";
+        public static int SECOND_HEALTH = 10;
+        public static int SECOND_ATTACK = 1;
 
-        public static string BANDIT_NAME = "Bandit";
-        public static string BANDIT_AVATAR = "E";
-        public static int BANDIT_HEALTH = 10;
-        public static int BANDIT_ATTACK = 10;
+        public static string THIRD_NAME = "Bandit";
+        public static string THIRD_AVATAR = "E";
+        public static int THIRD_HEALTH = 10;
+        public static int THIRD_ATTACK = 10;
     }
 }

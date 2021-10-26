@@ -1,5 +1,5 @@
 ﻿Name=You
-Attack=100
-Health=1000
-Potions=100
-Money=100
+Attack=5
+Health=100
+Potions=3
+Money=0

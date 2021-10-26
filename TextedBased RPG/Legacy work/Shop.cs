@@ -23,6 +23,7 @@ namespace TextedBased_RPG
             items = itemsTarget;
             itemsInShop = itemsForStock;
             tax = thisShopTax;
+            dialogue = DesiredDialogue;
             SetBuyAndSellString();
         }
         
@@ -68,7 +69,7 @@ namespace TextedBased_RPG
                 }
                 else
                 {
-                    lastAction = "come back with more cash";
+                    lastAction = "You don't have enough money.";
                 }
             }
             else if (input == (ConsoleKey)items.GetWeaponName(ITEM.BOW)[0] && itemsInShop.Contains(ITEM.BOW))
@@ -85,7 +86,7 @@ namespace TextedBased_RPG
                 }
                 else
                 {
-                    lastAction = "come back with more cash";
+                    lastAction = "You don't have enough money.";
                 }
             }
             else if (input == (ConsoleKey)items.GetItemName(ITEM.POTION)[0] && itemsInShop.Contains(ITEM.POTION))
@@ -98,7 +99,7 @@ namespace TextedBased_RPG
                 }
                 else
                 {
-                    lastAction = "come back with more cash";
+                    lastAction = "You don't have enough money.";
                 }
             }
             else if (input == (ConsoleKey)items.GetItemName(ITEM.RAFT)[0] && itemsInShop.Contains(ITEM.RAFT))
@@ -115,7 +116,7 @@ namespace TextedBased_RPG
                 }
                 else
                 {
-                    lastAction = "come back with more cash";
+                    lastAction = "You don't have enough money.";
                 }
             }
         }
@@ -155,7 +156,7 @@ namespace TextedBased_RPG
                     user.CashGain(items.GetItemPrice(user.HeldWeapon));
                     user.Weapon = "None";
                     user.HeldWeapon = ITEM.NULL;
-                    user.attack = -5;
+                    user.attack = user.baseAttack;
                 }
                 else
                 {
@@ -168,8 +169,8 @@ namespace TextedBased_RPG
         private void Shopping() // Shopping menu
         {
             Console.Clear();
-            lastAction = "BUY SOMETHING, :D HA,HA,HA.";
-            Console.WriteLine("stepping close to take a good look, you see little of value");
+            lastAction = "BUY SOMETHING.";
+            Console.WriteLine("Stepping close to take a good look, you see little of value");
             bool shopping = true;
             while (shopping)
             {

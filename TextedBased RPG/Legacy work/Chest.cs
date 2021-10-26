@@ -69,7 +69,7 @@ namespace TextedBased_RPG
                         Console.Clear();
                         Console.WriteLine(player.GetName() + " have found a " + items.GetWeaponName(ItemID));
                         attackChange = player.baseAttack + items.GetWeaponAttack(ItemID);
-                        Console.WriteLine("It will change your attack to " + (attackChange + player.attack) + " from " + player.attack + ".");
+                        Console.WriteLine("It will change your attack to " + (attackChange) + " from " + player.attack + ".");
                         Console.WriteLine("Equip it? Y/N");
 
                         input = Console.ReadKey(true).Key.ToString();

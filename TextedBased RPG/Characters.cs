@@ -12,8 +12,8 @@ namespace TextedBased_RPG
         protected int health;
         protected string AttackMessage = "";
         public int maxHealth;
-        public bool Alive;
-        public int MinPos = 0;
+        public bool alive;
+        public int minPos = 0;
         public int MaxPosY = Global.MAP_Y_LENGTH - 1;
         public int MaxPosX = Global.MAP_X_LENGTH - 1;
         public int CharacterX;
@@ -45,7 +45,7 @@ namespace TextedBased_RPG
 
             if (health <= 0)
             {
-                Alive = false;
+                alive = false;
             }
         }
 
@@ -91,15 +91,10 @@ namespace TextedBased_RPG
                 movementType = 3;
             }
         }
-
         public void HealAll()
         {
             health = maxHealth;
         }
-
-
-
-
         public void TakeDamage(int damage)
         {
 
@@ -108,7 +103,7 @@ namespace TextedBased_RPG
                 damage = health;
                 Damagetaken = damage;
                 health = 0;
-                Alive = false;
+                alive = false;
 
             }
             else
@@ -117,7 +112,6 @@ namespace TextedBased_RPG
                 Damagetaken = damage;
             }
         }
-
         public void WeaponChange(ITEM WeaponID)
         {
 
@@ -131,17 +125,16 @@ namespace TextedBased_RPG
             {
                 Weapon = items.GetWeaponName(WeaponID);
                 heldWeapon = ITEM.SWORD;
-                BonusAttack = 10;
+                BonusAttack = items.swordDamage;
             }
             else if (WeaponID == ITEM.BOW)
             {
                 Weapon = items.GetWeaponName(WeaponID);
                 heldWeapon = ITEM.BOW;
-                BonusAttack = 5;
+                BonusAttack = items.bowDamage;
             }
-            attack = Global.BASE_ATTACK + BonusAttack;
+            attack = baseAttack + BonusAttack;
         }
-
         public void UseItem(ITEM itemID)
         {
             if (items.GetItemName(itemID) == "None")

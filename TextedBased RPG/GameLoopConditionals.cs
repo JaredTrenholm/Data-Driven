@@ -22,7 +22,7 @@ namespace TextedBased_RPG
         }
         public bool GameLoopActive()
         {
-            if(player.Alive == false)
+            if(player.alive == false)
             {
                 EndConditions = EndConditions + 1;
                 Condition = 1;

@@ -10,12 +10,12 @@ namespace TextedBased_RPG
     {
         public Boss(Random random) : base(random)
         {
-            maxHealth = 100;
+            maxHealth = Global.BOSS_HEALTH;
             health = maxHealth;
-            Alive = true;
+            alive = true;
             name = Global.BOSS_NAME;
-            attack = Global.BASE_ATTACK;
-            Avatar = "B";
+            attack = Global.BOSS_ATTACK;
+            Avatar = Global.BOSS_AVATAR;
         }
     }
 }

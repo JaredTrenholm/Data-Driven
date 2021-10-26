@@ -83,10 +83,10 @@ namespace TextedBased_RPG
                 if (RenderData[CameraY, CameraX] == "^") { Console.ForegroundColor = ConsoleColor.Gray; }
                 else if (RenderData[CameraY, CameraX] == "~") { Console.ForegroundColor = ConsoleColor.Blue; }
                 else if (RenderData[CameraY, CameraX] == "*") { Console.ForegroundColor = ConsoleColor.DarkGreen; }
-                else if (RenderData[CameraY, CameraX] == "E") { Console.ForegroundColor = ConsoleColor.Red; }
-                else if (RenderData[CameraY, CameraX] == "D") { Console.ForegroundColor = ConsoleColor.Red; }
-                else if (RenderData[CameraY, CameraX] == "S") { Console.ForegroundColor = ConsoleColor.Red; }
-                else if (RenderData[CameraY, CameraX] == "B") { Console.ForegroundColor = ConsoleColor.Red; }
+                else if (RenderData[CameraY, CameraX] == Global.FIRST_AVATAR) { Console.ForegroundColor = ConsoleColor.Red; }
+                else if (RenderData[CameraY, CameraX] == Global.SECOND_AVATAR) { Console.ForegroundColor = ConsoleColor.Red; }
+                else if (RenderData[CameraY, CameraX] == Global.THIRD_AVATAR) { Console.ForegroundColor = ConsoleColor.Red; }
+                else if (RenderData[CameraY, CameraX] == Global.BOSS_AVATAR) { Console.ForegroundColor = ConsoleColor.Red; }
                 else if (RenderData[CameraY, CameraX] == "'") { Console.ForegroundColor = ConsoleColor.Green; }
                 else if (RenderData[CameraY, CameraX] == "T") { Console.ForegroundColor = ConsoleColor.Yellow; }
                 else if (RenderData[CameraY, CameraX] == "C") { Console.ForegroundColor = ConsoleColor.Cyan; }

@@ -50,12 +50,12 @@ namespace TextedBased_RPG
                 Console.SetCursorPosition(0, 24);
                 Console.WriteLine($"you gained {vEarnings}$");
                 user.CashGain(vEarnings);
-                Alive = false;
+                alive = false;
             }
         }
         public void Draw()
         {
-            if (Alive == false) return;
+            if (alive == false) return;
 
             
             else
@@ -72,7 +72,7 @@ namespace TextedBased_RPG
         public void EnemyTurn()
         {
             CheckHealth();
-            if (Alive == false) return;
+            if (alive == false) return;
             
             else 
             {

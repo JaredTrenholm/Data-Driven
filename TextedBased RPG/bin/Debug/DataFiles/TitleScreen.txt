@@ -1,0 +1,7 @@
+﻿┌──────────────────────────────────────────────────────────────────────────┐
+│                               RPG Story                                  │
+│                       Created by: Jared Trenholm                         │
+│                                                                          │
+│                           Move using WASD. Use potions with P.           │
+│ To make choices, press the letter that is represented beside the option. │
+└──────────────────────────────────────────────────────────────────────────┘

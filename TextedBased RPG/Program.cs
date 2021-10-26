@@ -12,6 +12,7 @@ namespace TextedBased_RPG
         static void Main(string[] args)
         {
             GameManager GM = new GameManager();
+            GM.InitObjects();
             HUD = new Hud();
             HUD.MainMenu();
             HUD.Intro();

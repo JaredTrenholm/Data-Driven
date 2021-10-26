@@ -25,7 +25,7 @@ namespace TextedBased_RPG
             int deaths = 0;
             for (int z = 0; z < enemyCount; z++)
             {
-                if (enemy[z].Alive == true)
+                if (enemy[z].alive == true)
                 {
                 }
                 else
@@ -50,13 +50,13 @@ namespace TextedBased_RPG
         {
             switch (type.ToLower()) {
                 case "dog":
-                    enemy[enemyCount] = new Dog(random);
+                    enemy[enemyCount] = new ThirdEnemy(random);
                     break;
                 case "slime":
-                    enemy[enemyCount] = new Slime(random);
+                    enemy[enemyCount] = new FirstEnemy(random);
                     break;
                 case "bandit":
-                    enemy[enemyCount] = new Bandit(random);
+                    enemy[enemyCount] = new ThirdEnemy(random);
                     break;
                 case "boss":
                     if (bossID == -1)
@@ -65,11 +65,11 @@ namespace TextedBased_RPG
                         bossID = enemyCount;
                     } else
                     {
-                        enemy[enemyCount] = new Bandit(random);
+                        enemy[enemyCount] = new ThirdEnemy(random);
                     }
                     break;
                 default:
-                    enemy[enemyCount] = new Slime(random);
+                    enemy[enemyCount] = new FirstEnemy(random);
                     break;
             }
             enemy[enemyCount].SetPos(x, y);
@@ -90,7 +90,7 @@ namespace TextedBased_RPG
         {
             if (bossID != -1)
             {
-                if (enemy[bossID].Alive == false)
+                if (enemy[bossID].alive == false)
                 {
                     return true;
                 }
@@ -108,7 +108,7 @@ namespace TextedBased_RPG
             Enemy enemyTarget = null;
             for (int z = 0; z < enemyCount; z++)
             {
-                if((enemy[z].CharacterX == x) && (enemy[z].CharacterY == y) && (enemy[z].Alive == true))
+                if((enemy[z].CharacterX == x) && (enemy[z].CharacterY == y) && (enemy[z].alive == true))
                 {
                     enemyTarget = enemy[z];
                 }
@@ -120,7 +120,7 @@ namespace TextedBased_RPG
         {
             for (int z = 0; z < enemyCount; z++)
             {
-                if (enemy[z].Alive == true)
+                if (enemy[z].alive == true)
                 {
                     enemy[z].EnemyTurn();
                 }
@@ -131,7 +131,7 @@ namespace TextedBased_RPG
         {
             for (int z = 0; z < enemyCount; z++)
             {
-                if (enemy[z].Alive == true)
+                if (enemy[z].alive == true)
                 {
                     enemy[z].Draw();
                 }

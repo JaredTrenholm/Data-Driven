@@ -27,7 +27,7 @@ namespace TextedBased_RPG
 
 
         private ChestManager chests;
-        private List<Shop> shops = new List<Shop>();
+        private ShopManager shops;
         private NPCManager npcs;
 
         public bool hasBoat = false;
@@ -37,7 +37,7 @@ namespace TextedBased_RPG
 
 
 
-        public Player(EnemyManager enemyManagerTarget, ChestManager chestManager, TownManager townTarget, List<Shop> shopsTarget, NPCManager npcTarget, Hud HUDTarget, ItemManager itemTarget)
+        public Player(EnemyManager enemyManagerTarget, ChestManager chestManager, TownManager townTarget, ShopManager shopsTarget, NPCManager npcTarget, Hud HUDTarget, ItemManager itemTarget)
         {
             npcs = npcTarget;
             chests = chestManager;
@@ -48,7 +48,7 @@ namespace TextedBased_RPG
             money = 0;
             health = maxHealth;
             name = Global.PLAYER_NAME;
-            Alive = true;
+            alive = true;
             CharacterX = 14;
             CharacterY = 5;
             attack = Global.BASE_ATTACK;
@@ -65,6 +65,7 @@ namespace TextedBased_RPG
         public void ChangeAttack(int targetAttack)
         {
             attack = targetAttack;
+            baseAttack = attack;
         }
         public void Draw()
         {
@@ -87,17 +88,11 @@ namespace TextedBased_RPG
             {
                 town.EnterTown();
             }
-            for (int i = 0; i < shops.Count; i++)
+            Shop shop = shops.LocateShops(CharacterX, CharacterY);
+            if (shop != null)
             {
-                if (CharacterX == shops[i].x)
-                {
-                    if (CharacterY == shops[i].y)
-                    {
-                        shops[i].EnterShop();
-                    }
-                }
+                shop.EnterShop();
             }
-
             CheckHealth();
         }
 
@@ -252,7 +247,7 @@ namespace TextedBased_RPG
                             }
                             else
                             {
-                                if (CharacterY > MinPos)
+                                if (CharacterY > minPos)
                                 {
                                     CharacterY = CharacterY - 1;
                                     CharacterYOffset = CharacterYOffset + 1;
@@ -277,7 +272,7 @@ namespace TextedBased_RPG
                             }
                             else
                             {
-                                if (CharacterX > MinPos)
+                                if (CharacterX > minPos)
                                 {
                                     CharacterX = CharacterX - 1;
                                     CharacterXOffset = CharacterXOffset + 1;

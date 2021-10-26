@@ -47,7 +47,31 @@ namespace TextedBased_RPG
 
         public int moneyValue = 5;
 
+        public List<ITEM> FormItemList(List<string> inventory)
+        {
+            List<ITEM> newInventory = new List<ITEM>();
 
+            foreach(string item in inventory)
+            {
+                if (item.ToLower() == swordName.ToLower())
+                {
+                    newInventory.Add(ITEM.SWORD);
+                } else if (item.ToLower() == bowName.ToLower())
+                {
+                    newInventory.Add(ITEM.BOW);
+                }
+                else if (item.ToLower() == potionName.ToLower())
+                {
+                    newInventory.Add(ITEM.POTION);
+                }
+                else if (item.ToLower() == boatName.ToLower())
+                {
+                    newInventory.Add(ITEM.RAFT);
+                }
+            }
+
+            return newInventory;
+        }
         public string GetWeaponName(ITEM WeaponID)
         {
             if (WeaponID == ITEM.NULL)

@@ -48,3 +48,10 @@ C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\Te
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\TextedBased RPG.pdb
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\ItemPropertiesAndNames.txt
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Player.txt
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\EnemyTypes.txt
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Shops.txt
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\TitleScreen.txt
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\DeathEnding.txt
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\GoodEnding.txt
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Intro.txt
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\MediumEnding.txt

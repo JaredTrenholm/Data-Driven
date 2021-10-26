@@ -8,7 +8,7 @@ namespace TextedBased_RPG
 {
     class DataReading
     {
-        static string[] fileNames = { "ItemPropertiesAndNames", "Intro", "GoodEnding", "MediumEnding", "DeathEnding","EnemyTypes", "TitleScreen","Player", "Enemy", "NPC", "Towns", "Chests", "Shops"};
+        static string[] fileNames = { "ItemPropertiesAndNames", "Intro", "GoodEnding", "MediumEnding", "DeathEnding","EnemyTypes", "TitleScreen","Player", "Enemy", "NPC", "Towns", "Chests", "Shops"}; //Text files will be read in order. Put vital files first
 
         public void LoadData(EnemyManager enemyManager, NPCManager npcManager, TownManager townManager, ChestManager chestManager, ItemManager items, Player player, ShopManager shops)
         {
@@ -17,6 +17,7 @@ namespace TextedBased_RPG
                 string[] fileLoaded;
                 for (int i = 0; i < fileNames.Length; i++)
                 {
+                    //Simply way to detect files and say which is missing.
                     try
                     {
                         fileLoaded = System.IO.File.ReadAllLines("DataFiles/" + fileNames[i] + ".txt");
@@ -28,7 +29,11 @@ namespace TextedBased_RPG
                         Console.ReadKey(true);
                         Console.Clear();
                     }
+                    //actual loading of file
                     fileLoaded = System.IO.File.ReadAllLines("DataFiles/" + fileNames[i] + ".txt");
+
+                    //Compares file name to cases to detect which method to fire off.
+                    //ALL PARSE METHODS WORK DIFFERENTLY FOR DIFFERENT PURPOSES
                     switch (fileNames[i])
                     {
                         case "DeathEnding":

@@ -8,7 +8,7 @@ namespace TextedBased_RPG
 {
     class DataReading
     {
-        static string[] fileNames = { "ItemPropertiesAndNames", "Intro", "GoodEnding", "MediumEnding", "DeathEnding","EnemyTypes", "TitleScreen","Player", "Enemy", "NPC", "Towns", "Chests", "Shops"}; //Text files will be read in order. Put vital files first
+        static string[] fileNames = { "ItemPropertiesAndNames", "Intro", "GoodEnding", "MediumEnding", "DeathEnding","EnemyTypes", "TitleScreen","Player", "EnemyMap", "NPC", "Towns", "Chests", "Shops"}; //Text files will be read in order. Put vital files first
 
         public void LoadData(EnemyManager enemyManager, NPCManager npcManager, TownManager townManager, ChestManager chestManager, ItemManager items, Player player, ShopManager shops)
         {
@@ -63,7 +63,7 @@ namespace TextedBased_RPG
                         case "ItemPropertiesAndNames":
                             ParseItemProperties(fileLoaded, items);
                             break;
-                        case "Enemy":
+                        case "EnemyMap":
                             ParseEnemies(fileLoaded, enemyManager);
                             break;
                         case "NPC":
@@ -522,39 +522,26 @@ namespace TextedBased_RPG
         }
         private void ParseEnemies(string[] fileLoaded, EnemyManager enemyManager)
         {
-            string enemyType = "";
-            int xPos = -1;
-            int yPos = -1;
-            for (int i = 0; i < fileLoaded.Length; i++)
+
+            for (int y = 0; y < fileLoaded.Length; y++)
             {
-                string[] lineSplit = fileLoaded[i].Split('=');
+                string[] lineSplit = fileLoaded[y].Split(' ');
                 for (int x = 0; x < lineSplit.Length; x++)
                 {
-                    if (lineSplit[x].ToLower() == "type")
+                    if(lineSplit[x] == Global.BOSS_AVATAR)
                     {
-                        enemyType = lineSplit[x + 1].ToLower();
-                        x += 1;
+                        enemyManager.CreateEnemy(x, y, "boss");
+                    } else if (lineSplit[x] == Global.FIRST_AVATAR)
+                    {
+                        enemyManager.CreateEnemy(x, y, "slime");
                     }
-
-                    if (lineSplit[x].ToLower() == "x")
+                    else if (lineSplit[x] == Global.SECOND_AVATAR)
                     {
-                        xPos = Convert.ToInt16(lineSplit[x + 1]);
-                        x += 1;
+                        enemyManager.CreateEnemy(x, y, "dog");
                     }
-
-                    if (lineSplit[x].ToLower() == "y")
+                    else if (lineSplit[x] == Global.THIRD_AVATAR)
                     {
-                        yPos = Convert.ToInt16(lineSplit[x + 1]);
-                        x += 1;
-                    }
-
-                    if(xPos != -1 && yPos != -1 && enemyType != "")
-                    {
-                        enemyManager.CreateEnemy(xPos,yPos,enemyType);
-                        enemyType = "";
-                        xPos = -1;
-                        yPos = -1;
-                        break;
+                        enemyManager.CreateEnemy(x, y, "bandit");
                     }
 
                 }

@@ -55,3 +55,4 @@ C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\Te
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\GoodEnding.txt
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Intro.txt
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\MediumEnding.txt
+C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\EnemyMap.txt

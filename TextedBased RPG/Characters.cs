@@ -141,7 +141,7 @@ namespace TextedBased_RPG
             {
 
             }
-            else if (items.GetItemName(itemID) == "Potion")
+            else if (items.GetItemName(itemID) == items.potionName)
             {
                 health = health + Global.POTION_HEAL;
                 if (health > maxHealth)

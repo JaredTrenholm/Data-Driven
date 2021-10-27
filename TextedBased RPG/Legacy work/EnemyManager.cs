@@ -50,7 +50,7 @@ namespace TextedBased_RPG
         {
             switch (type.ToLower()) {
                 case "dog":
-                    enemy[enemyCount] = new ThirdEnemy(random);
+                    enemy[enemyCount] = new SecondEnemy(random);
                     break;
                 case "slime":
                     enemy[enemyCount] = new FirstEnemy(random);

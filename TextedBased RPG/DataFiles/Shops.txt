@@ -1,7 +1,7 @@
 ﻿Name=Bob's Hut
 Dialogue=I'm Bob and this is my hut!
-x=10
-y=15
+x=23
+y=21
 tax=1
 potion
 sword
@@ -13,6 +13,15 @@ Dialogue=I'm Dob and this is my house!
 x=11
 y=15
 tax=1
+potion
+bow
+end
+
+Name=Gob's Hole
+Dialogue=I'm Gob and this is my hole!
+x=19
+y=9
+tax=5
 potion
 bow
 end

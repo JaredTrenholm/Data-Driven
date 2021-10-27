@@ -39,7 +39,6 @@ C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\Te
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\obj\Debug\TextedBased RPG.exe
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\obj\Debug\TextedBased RPG.pdb
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Chests.txt
-C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Enemy.txt
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\NPC.txt
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Overworld.txt
 C:\Users\w0435500\OneDrive - Nova Scotia Community College\Data Driven Legacy\TextedBased-RPG-main\TextedBased RPG\bin\Debug\DataFiles\Towns.txt

@@ -103,6 +103,10 @@ namespace TextedBased_RPG
                 return false;
             }
         }
+        public int GetCount()
+        {
+            return enemyCount;
+        }
         public Enemy LocateEnemy(int x, int y)
         {
             Enemy enemyTarget = null;

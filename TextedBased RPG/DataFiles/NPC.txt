@@ -1,3 +1,11 @@
 ﻿dialogue=There is water everywhere. Water is something you cannot cross without a boat, right? What will we do?
 x=21
 y=10
+
+dialogue=A few months ago, a hero saved us from the bandit army. Though they never returned our boat. Maybe they weren't much of a hero after all... They never paid us for healing either...
+x=22
+y=7
+
+dialogue=The shops are owned by three brothers. Bob, Dob, and Gob. They all run rival shops. Though Bob won't actually sell his goods. I heard he is a hoarder.
+x=14
+y=18

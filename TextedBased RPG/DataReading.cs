@@ -528,10 +528,11 @@ namespace TextedBased_RPG
                 string[] lineSplit = fileLoaded[y].Split(' ');
                 for (int x = 0; x < lineSplit.Length; x++)
                 {
-                    if(lineSplit[x] == Global.BOSS_AVATAR)
+                    if (lineSplit[x] == Global.BOSS_AVATAR)
                     {
                         enemyManager.CreateEnemy(x, y, "boss");
-                    } else if (lineSplit[x] == Global.FIRST_AVATAR)
+                    }
+                    else if (lineSplit[x] == Global.FIRST_AVATAR)
                     {
                         enemyManager.CreateEnemy(x, y, "slime");
                     }

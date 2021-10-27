@@ -34,6 +34,10 @@ namespace TextedBased_RPG
             {
                 Condition = 3;
                 EndConditions = EndConditions + 1;
+            } else if(enemies.GetCount() == 0)
+            {
+                EndConditions = EndConditions + 1;
+                Condition = 2;
             }
             
             if(EndConditions > 0)

@@ -83,9 +83,6 @@
     <Content Include="DataFiles\DeathEnding.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="DataFiles\Enemy.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="DataFiles\EnemyMap.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,4 +1,14 @@
 ﻿name=Cido
-dialogue=Out East, there is an island. It's small, but something has to be there right?
+dialogue=The Bandit Army is back! We thought the hero killed the last of them, but I guess not!
 x=17
 y=10
+
+name=Liberty City
+dialogue=We started colonizing the lands of Azara again after the hero saved us. Though now we are under threat once again.
+x=17
+y=3
+
+name=Sewer City
+dialogue=We are Sewer City... Our main attraction is sewers... Why did we choose this life?
+x=7
+y=19
